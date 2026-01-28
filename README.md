@@ -29,9 +29,36 @@ sales-forecast/
 
 ## Setup
 
+1. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
+
+2. Configure Kaggle API:
+
+   - Create account at [kaggle.com](https://www.kaggle.com)
+   - Go to Settings → API → Generate New Token
+   - Move the downloaded file:
+
+   ```bash
+   mkdir -p ~/.kaggle
+   mv ~/Downloads/kaggle.json ~/.kaggle/
+   chmod 600 ~/.kaggle/kaggle.json
+   ```
+
+3. Download the dataset:
+
+```bash
+kaggle competitions download -c store-sales-time-series-forecasting -p data/raw/
+unzip data/raw/store-sales-time-series-forecasting.zip -d data/raw/
+rm data/raw/store-sales-time-series-forecasting.zip
+```
+
+## Usage
+
+1. Run `notebooks/01_exploration.ipynb` to explore the data
+2. Run `notebooks/02_training.ipynb` to train the model
 
 ## License
 
